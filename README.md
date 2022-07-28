@@ -1,3 +1,4 @@
 # web3Modal-Hooks
 
-abc
+web3Modal is a library which provides a gateway to easily connect crypto wallets in your DApp
+
