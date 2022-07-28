@@ -34,3 +34,23 @@ function MyApp({ Component, pageProps }) {
 export default MyApp;
 ````
 
+4. To access the hook, through which you can access your current account, connect and disconnect methods etc:
+
+````
+import { useWalletContext } from "../../../hooks/web3Client";
+
+const myComponent = () => {
+
+  const { connect, disconnect, web3modalContext } = useWalletContext();
+  const { address, isActive, web3Provider, provider } = web3modalContext;
+  
+return(
+  //Render Code
+
+  <button onClick = {connect}>Connect!</button>
+);
+}
+````
+
+5. That's it! You can import the hook anywhere in your application, the "connect" function opens up the modal to connect to your wallet!
+
