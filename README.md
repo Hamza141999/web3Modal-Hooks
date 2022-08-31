@@ -8,11 +8,11 @@ This repo contains hooks and useReducers which setup web3Modal in your DApp
 1. Install web3Modal
 
 ````
-yarn add web3modal
+yarn add web3modal ethers @walletconnect/web3-provider
 
 #OR
 
-npm install --save web3modal
+npm install --save web3modal ethers @walletconnect/web3-provider
 ````
 
 2. Paste the "web3Client.js" and "web3Provider.js" files in the root of your project
