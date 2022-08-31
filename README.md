@@ -50,7 +50,7 @@ return(
   <button onClick = {connect}>Connect!</button>
   
   //Similarly for disconnecting
-  <button onClick = {disconnect}>Connect!</button>
+  <button onClick = {disconnect}>Disconnect!</button>
 
   
 );
