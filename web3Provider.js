@@ -1,12 +1,8 @@
 //This file contains actions and reducers for Web3Modal wallet changes
 
-import Web3 from "web3";
-
 export const Web3ProviderState = {
   provider: null,
-  web3Provider: Web3?.providers?.givenProvider
-    ? Web3?.providers?.givenProvider
-    : null,
+  web3Provider: null,
   address: null,
   network: null,
   isActive: null,

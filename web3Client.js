@@ -2,8 +2,7 @@ import { useContext, createContext } from "react";
 import Web3Modal, { local } from "web3modal";
 import WalletConnectProvider from "@walletconnect/web3-provider";
 import { useEffect, useReducer, useCallback, useState } from "react";
-import { web3Reducer, Web3InitialState } from "../reducers/web3Provider";
-import { parse, stringify, toJSON, fromJSON } from "flatted";
+import { web3Reducer, Web3InitialState } from "./web3Provider";
 import { providers } from "ethers";
 
 //Creating Context for prop drilling throughout the application
@@ -16,9 +15,10 @@ function useWalletContext() {
 
 //Options for wallet connect provider
 const walletConnectOptions = new WalletConnectProvider({
+  //Insert your RPC's here
   rpc: {
-    80001: process.env.INFURA_RPC_MUMBAI,
-    137: process.env.INFURA_RPC_POLYGON,
+    80001: "https://rpc-mumbai.maticvigil.com/",
+    137: "https://polygon-rpc.com/",
   },
   infuraId: process.env.INFURA_RPC_MUMBAI.split("/")[4],
   supportedChainIds: [80001, 137],
@@ -72,16 +72,6 @@ const UseWeb3Provider = ({ children }) => {
       providerOptions,
     });
     setWeb3Modal(web3Modal);
-  }, []);
-
-  useEffect(() => {
-    if (typeof window !== undefined) {
-      if (window.localStorage.getItem("hasStoredLocalStorage") === "true") {
-        setPersistentWalletState(
-          parse(window.localStorage.getItem("walletLocalStorage"))
-        );
-      }
-    }
   }, []);
 
   const connect = async () => {
@@ -146,8 +136,6 @@ const UseWeb3Provider = ({ children }) => {
         // eslint-disable-next-line no-console
         console.log("disconnect", error);
         disconnect();
-        localStorage.setItem("walletLocalStorage", stringify(persistentState));
-        localStorage.setItem("hasStoredLocalStorage", false);
       };
 
       provider.on("accountsChanged", handleAccountsChanged);
