@@ -20,7 +20,6 @@ const walletConnectOptions = new WalletConnectProvider({
     80001: "https://rpc-mumbai.maticvigil.com/",
     137: "https://polygon-rpc.com/",
   },
-  infuraId: process.env.INFURA_RPC_MUMBAI.split("/")[4],
   supportedChainIds: [80001, 137],
 });
 
