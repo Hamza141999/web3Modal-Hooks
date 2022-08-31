@@ -15,7 +15,7 @@ yarn add web3modal ethers @walletconnect/web3-provider
 npm install --save web3modal ethers @walletconnect/web3-provider
 ````
 
-2. Paste the "web3Client.js" and "web3Provider.js" files in the root of your project
+2. Paste the "web3Client.js" and "web3Provider.js" files in the root of your project, let's assume you've put them in the same folder called "hooks" 
 
 3. Import ContextAPI provider "UseWeb3Provider" in your _app.js or index.js file. Wrap it around the parent component of your project.
 ````
